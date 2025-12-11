@@ -3,11 +3,10 @@ using System.Drawing;
 using System.Reflection.Emit;
 using System.Windows.Forms;
 
-namespace ResimBenzerlikApp  // Senin proje ismin ekran görüntüsünde böyle
+namespace ResimBenzerlikApp 
 {
     public partial class Form1 : Form
     {
-        // Yüklenen resimleri hafızada tutmak için değişkenler
         Bitmap resim1;
         Bitmap resim2;
 
@@ -16,19 +15,17 @@ namespace ResimBenzerlikApp  // Senin proje ismin ekran görüntüsünde böyle
             InitializeComponent();
         }
 
-        // --- HATA VEREN KAYIP PARÇALAR (Bunları ekleyince hata düzelecek) ---
         private void label1_Click(object sender, EventArgs e)
         {
-            // Burası boş kalsın, silme.
+          
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // Burası boş kalsın, silme.
+          
         }
         // -------------------------------------------------------------------
 
-        // 1. RESİM YÜKLEME BUTONU
         private void button1_Click(object sender, EventArgs e)
         {
             OpenFileDialog dosyaAc = new OpenFileDialog();
@@ -41,7 +38,6 @@ namespace ResimBenzerlikApp  // Senin proje ismin ekran görüntüsünde böyle
             }
         }
 
-        // 2. RESİM YÜKLEME BUTONU
         private void button2_Click(object sender, EventArgs e)
         {
             OpenFileDialog dosyaAc = new OpenFileDialog();
@@ -54,7 +50,6 @@ namespace ResimBenzerlikApp  // Senin proje ismin ekran görüntüsünde böyle
             }
         }
 
-        // 3. KARŞILAŞTIR BUTONU
         private void button3_Click(object sender, EventArgs e)
         {
             if (resim1 == null || resim2 == null)
@@ -67,7 +62,6 @@ namespace ResimBenzerlikApp  // Senin proje ismin ekran görüntüsünde böyle
             label1.Text = "Benzerlik Oranı: %" + (oran * 100).ToString("0.00");
         }
 
-        // 4. TEMİZLE BUTONU (Eğer eklediysen çalışır, yoksa hata vermez)
         private void button4_Click(object sender, EventArgs e)
         {
             pictureBox1.Image = null;
@@ -77,7 +71,6 @@ namespace ResimBenzerlikApp  // Senin proje ismin ekran görüntüsünde böyle
             label1.Text = "Sonuç bekleniyor...";
         }
 
-        // HESAPLAMA FONKSİYONU
         private double BenzerlikHesapla(Bitmap img1, Bitmap img2)
         {
             Bitmap kucuk1 = new Bitmap(img1, new Size(16, 16));
